@@ -1,0 +1,34 @@
+require:
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.6.3
+
+Metrics/LineLength:
+  Max: 130
+
+Metrics/BlockLength:
+  Enabled: true
+  Max: 35
+  Exclude:
+    - spec/**/*
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/MixinUsage:
+  Exclude:
+    - bin/*
+
+Metrics/AbcSize:
+  Max: 30
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
