@@ -50,5 +50,16 @@ module KairosRB
         headers: { 'Content-Type' => 'application/json' }
       )
     end
+
+    def detect(image:, selector: nil, min_head_scale: nil)
+      body = { 'image' => image, 'selector' => selector, 'MinHeadScale' => min_head_scale }
+
+      @connection.call(
+        method: 'post',
+        url: '/detect',
+        body: body.to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
+    end
   end
 end

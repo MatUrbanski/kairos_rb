@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kairos.com/detect
+    body:
+      encoding: UTF-8
+      string: '{"image":"test_image","selector":null,"MinHeadScale":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 18:25:20 GMT
+      content-type:
+      - application/json; charset=UTF-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      job-id:
+      - 9ecb171f77774748bc6
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,app_key,app_id,api_key
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"faces":[{"attributes":{"age":25,"asian":0.00927,"black":0.00256,"gender":{"femaleConfidence":1,"maleConfidence":0,"type":"F"},"glasses":"None","hispanic":0.71476,"lips":"Together","other":0.00158,"white":0.27183},"chinTipX":285,"chinTipY":754,"confidence":0.99973,"eyeDistance":214,"face_id":1,"height":647,"leftEyeCenterX":135,"leftEyeCenterY":385,"pitch":11,"quality":-0.12558,"rightEyeCenterX":349,"rightEyeCenterY":367,"roll":-6,"topLeftX":28,"topLeftY":95,"width":485,"yaw":17}],"file":"test1.jpg","height":1024,"status":"Complete","width":680}]}
+
+        '
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 18:25:20 GMT
+recorded_with: VCR 5.0.0

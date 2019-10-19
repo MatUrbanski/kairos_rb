@@ -17,6 +17,9 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 20
 
+Metrics/ParameterLists:
+  Max: 6
+
 Style/MixinUsage:
   Exclude:
     - bin/*

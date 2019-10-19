@@ -135,4 +135,61 @@ RSpec.describe KairosRB::Client do
       end
     end
   end
+
+  describe '#detect' do
+    let(:response) do
+      {
+        'images' => [
+          {
+            'faces' => [
+              {
+                'attributes' => {
+                  'age' => 25,
+                  'asian' => 0.00927,
+                  'black' => 0.00256,
+                  'gender' => {
+                    'femaleConfidence' => 1,
+                    'maleConfidence' => 0,
+                    'type' => 'F'
+                  },
+                  'glasses' => 'None',
+                  'hispanic' => 0.71476,
+                  'lips' => 'Together',
+                  'other' => 0.00158,
+                  'white' => 0.27183
+                },
+                'chinTipX' => 285,
+                'chinTipY' => 754,
+                'confidence' => 0.99973,
+                'eyeDistance' => 214,
+                'face_id' => 1,
+                'height' => 647,
+                'leftEyeCenterX' => 135,
+                'leftEyeCenterY' => 385,
+                'pitch' => 11,
+                'quality' => -0.12558,
+                'rightEyeCenterX' => 349,
+                'rightEyeCenterY' => 367,
+                'roll' => -6,
+                'topLeftX' => 28,
+                'topLeftY' => 95,
+                'width' => 485,
+                'yaw' => 17
+              }
+            ],
+            'file' => 'test1.jpg',
+            'height' => 1024,
+            'status' => 'Complete',
+            'width' => 680
+          }
+        ]
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'detect' do
+        expect(client.detect(image: image)).to eq response
+      end
+    end
+  end
 end
