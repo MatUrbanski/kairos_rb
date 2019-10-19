@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kairos.com/v2/media?landmarks=1&source=https%3A%2F%2Fmedia.kairos.com%2Ftest.flv&timeout=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 20:10:12 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      x-powered-by:
+      - PHP/5.5.9-1ubuntu4.22
+      cache-control:
+      - no-cache
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-frame-options:
+      - DENY
+      x-content-type-options:
+      - nosniff
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,app_key,app_id,api_key
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"ca7f791749e94609b181fa41","media_info":{"length":12,"width":640,"height":480,"type":"video","file":"ca7f791749e94609b181fa41.flv","mime_type":"video\/x-flv"},"frames":[{"time":12178,"people":[{"person_id":0,"demographics":{"age_group":"Adult","gender":"Male"},"appearance":{"glasses":"No"},"emotions":{"anger":0,"disgust":30,"fear":0,"joy":43.484,"sadness":0,"surprise":0},"tracking":{"glances":2,"dwell":5,"attention":1,"blinking":"Yes"},"pose":{"yaw":-15.206240031162,"pitch":29.316568356472,"roll":1.9071428812672},"face":{"x":180,"y":52,"width":378,"height":428},"distance":126.03570556641}]}],"status_code":4,"status_message":"Complete","length":12}'
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 20:10:13 GMT
+recorded_with: VCR 5.0.0

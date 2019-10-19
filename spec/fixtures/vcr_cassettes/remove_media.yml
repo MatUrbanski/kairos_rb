@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.kairos.com/v2/media/adb2d1d66b9adddb06b81889
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 20:48:16 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      x-powered-by:
+      - PHP/5.5.9-1ubuntu4.22
+      cache-control:
+      - no-cache
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"status_message":"Deleted","status_code":"5", "id": "adb2d1d66b9adddb06b81889"}'
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 20:48:16 GMT
+recorded_with: VCR 5.0.0

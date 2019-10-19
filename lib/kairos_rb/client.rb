@@ -113,5 +113,37 @@ module KairosRB
         headers: { 'Content-Type' => 'application/json' }
       )
     end
+
+    def add_media(media:, landmarks: 1, timeout: 10)
+      @connection.call(
+        method: 'post',
+        url: "/v2/media?source=#{media}&landmarks=#{landmarks}&timeout=#{timeout}",
+        headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+      )
+    end
+
+    def get_media(media_id:)
+      @connection.call(
+        method: 'get',
+        url: "/v2/media/#{media_id}",
+        headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+      )
+    end
+
+    def media_analytics(media_id:)
+      @connection.call(
+        method: 'get',
+        url: "/v2/analytics/#{media_id}",
+        headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+      )
+    end
+
+    def remove_media(media_id:)
+      @connection.call(
+        method: 'delete',
+        url: "/v2/media/#{media_id}",
+        headers: { 'Content-Type' => 'application/json' }
+      )
+    end
   end
 end

@@ -6,6 +6,8 @@ RSpec.describe KairosRB::Client do
   let(:image)        { 'test_image' }
   let(:subject_id)   { 'Test User' }
   let(:gallery_name) { 'test_gallery' }
+  let(:media)        { 'https://media.kairos.com/test.flv' }
+  let(:media_id)     { 'adb2d1d66b9adddb06b81889' }
   let(:client)       { described_class.new(app_id: app_id, app_key: app_key) }
 
   describe '#enroll' do
@@ -269,6 +271,194 @@ RSpec.describe KairosRB::Client do
     it 'returns parsed json response' do
       VCR.use_cassette 'remove_gallery' do
         expect(client.remove_gallery(gallery_name: gallery_name)).to eq response
+      end
+    end
+  end
+
+  describe '#add_media' do
+    let(:response) do
+      {
+        'frames' => [{
+          'people' => [{
+            'appearance' => {
+              'glasses' => 'No'
+            },
+            'demographics' => {
+              'age_group' => 'Adult',
+              'gender' => 'Male'
+            },
+            'distance' => 126.03570556641,
+            'emotions' => {
+              'anger' => 0,
+              'disgust' => 30,
+              'fear' => 0,
+              'joy' => 43.484,
+              'sadness' => 0,
+              'surprise' => 0
+            },
+            'face' => {
+              'height' => 428,
+              'width' => 378,
+              'x' => 180,
+              'y' => 52
+            },
+            'person_id' => 0,
+            'pose' => {
+              'pitch' => 29.316568356472,
+              'roll' => 1.9071428812672,
+              'yaw' => -15.206240031162
+            },
+            'tracking' => {
+              'attention' => 1,
+              'blinking' => 'Yes',
+              'dwell' => 5,
+              'glances' => 2
+            }
+          }],
+          'time' => 12_178
+        }],
+        'id' => 'ca7f791749e94609b181fa41',
+        'length' => 12,
+        'media_info' => {
+          'file' => 'ca7f791749e94609b181fa41.flv',
+          'height' => 480,
+          'length' => 12,
+          'mime_type' => 'video/x-flv',
+          'type' => 'video',
+          'width' => 640
+        },
+        'status_code' => 4,
+        'status_message' => 'Complete'
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'add_media' do
+        expect(client.add_media(media: media)).to eq response
+      end
+    end
+  end
+
+  describe '#get_media' do
+    let(:response) do
+      {
+        'frames' => [{
+          'people' => [{
+            'appearance' => {
+              'glasses' => 'No'
+            },
+            'demographics' => {
+              'age_group' => 'Adult',
+              'gender' => 'Male'
+            },
+            'distance' => 126.03570556641,
+            'emotions' => {
+              'anger' => 0,
+              'disgust' => 30,
+              'fear' => 0,
+              'joy' => 43.484,
+              'sadness' => 0,
+              'surprise' => 0
+            },
+            'face' => {
+              'height' => 428,
+              'width' => 378,
+              'x' => 180,
+              'y' => 52
+            },
+            'person_id' => 0,
+            'pose' => {
+              'pitch' => 29.316568356472,
+              'roll' => 1.9071428812672,
+              'yaw' => -15.206240031162
+            },
+            'tracking' => {
+              'attention' => 1,
+              'blinking' => 'Yes',
+              'dwell' => 5,
+              'glances' => 2
+            }
+          }],
+          'time' => 12_178
+        }],
+        'id' => 'ca7f791749e94609b181fa41',
+        'length' => 12,
+        'media_info' => {
+          'file' => 'ca7f791749e94609b181fa41.flv',
+          'height' => 480,
+          'length' => 12,
+          'mime_type' => 'video/x-flv',
+          'type' => 'video',
+          'width' => 640
+        },
+        'status_code' => 4,
+        'status_message' => 'Complete'
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'get_media' do
+        expect(client.get_media(media_id: media_id)).to eq response
+      end
+    end
+  end
+
+  describe '#media_analytics' do
+    let(:response) do
+      {
+        'id' => 'adb2d1d66b9adddb06b81889',
+        'impressions' => [{
+          'appearance' => {
+            'glasses' => 'No'
+          },
+          'average_emotion' => {
+            'anger' => 0,
+            'disgust' => 35.614,
+            'fear' => 0.685,
+            'joy' => 47.86,
+            'sadness' => 17.524,
+            'surprise' => 0
+          },
+          'demographics' => {
+            'age_group' => 'Young Adult',
+            'gender' => 'Male'
+          },
+          'emotion_score' => {
+            'negative' => 14.456,
+            'neutral' => 34.404,
+            'positive' => 48.86
+          },
+          'person_id' => 0,
+          'tracking' => {
+            'attention' => 100,
+            'dwell' => 5,
+            'glances' => 2
+          }
+        }],
+        'media_info' => {
+          'filename' => 'adb2d1d66b9adddb06b81889.flv',
+          'length' => 12,
+          'mime_type' => 'video/x-flv',
+          'type' => 'video'
+        }
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'media_analytics' do
+        expect(client.media_analytics(media_id: media_id)).to eq response
+      end
+    end
+  end
+
+  describe '#remove_media' do
+    let(:response) do
+      { 'id' => 'adb2d1d66b9adddb06b81889', 'status_code' => '5', 'status_message' => 'Deleted' }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'remove_media' do
+        expect(client.remove_media(media_id: media_id)).to eq response
       end
     end
   end

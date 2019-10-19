@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.kairos.com/v2/analytics/adb2d1d66b9adddb06b81889
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 20:38:56 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      x-powered-by:
+      - PHP/5.5.9-1ubuntu4.22
+      cache-control:
+      - no-cache
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-frame-options:
+      - DENY
+      x-content-type-options:
+      - nosniff
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,app_key,app_id,api_key
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"adb2d1d66b9adddb06b81889","media_info":{"length":12,"type":"video","filename":"adb2d1d66b9adddb06b81889.flv","mime_type":"video\/x-flv"},"impressions":[{"person_id":0,"tracking":{"glances":2,"dwell":5,"attention":100},"demographics":{"age_group":"Young
+        Adult","gender":"Male"},"appearance":{"glasses":"No"},"average_emotion":{"anger":0,"sadness":17.524,"fear":0.685,"disgust":35.614,"joy":47.86,"surprise":0},"emotion_score":{"positive":48.86,"negative":14.456,"neutral":34.404}}]}'
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 20:38:56 GMT
+recorded_with: VCR 5.0.0
