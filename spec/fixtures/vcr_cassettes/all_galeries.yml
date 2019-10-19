@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kairos.com/gallery/list_all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 18:31:06 GMT
+      content-type:
+      - application/json; charset=UTF-8
+      content-length:
+      - '45'
+      connection:
+      - close
+      job-id:
+      - 7fe5346b6b24443f80e
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,app_key,app_id,api_key
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"gallery_ids":["test_gallery"],"status":"Complete"}
+
+        '
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 18:31:06 GMT
+recorded_with: VCR 5.0.0

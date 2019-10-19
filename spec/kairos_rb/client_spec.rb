@@ -192,4 +192,19 @@ RSpec.describe KairosRB::Client do
       end
     end
   end
+
+  describe '#all_galeries' do
+    let(:response) do
+      {
+        'gallery_ids' => ['test_gallery'],
+        'status' => 'Complete'
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'all_galeries' do
+        expect(client.all_galeries).to eq response
+      end
+    end
+  end
 end
