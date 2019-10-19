@@ -32,5 +32,23 @@ module KairosRB
         headers: { 'Content-Type' => 'application/json' }
       )
     end
+
+    def recognize(image:, gallery_name:, selector: nil, min_head_scale: nil, threshold: nil, max_num_results: nil)
+      body = {
+        'image' => image,
+        'gallery_name' => gallery_name,
+        'selector' => selector,
+        'MinHeadScale' => min_head_scale,
+        'threshold' => threshold,
+        'max_num_results' => max_num_results
+      }
+
+      @connection.call(
+        method: 'post',
+        url: '/recognize',
+        body: body.to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
+    end
   end
 end

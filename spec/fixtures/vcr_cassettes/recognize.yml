@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kairos.com/recognize
+    body:
+      encoding: UTF-8
+      string: '{"image":"test_image","gallery_name":"test_gallery","selector":null,"MinHeadScale":null,"threshold":null,"max_num_results":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 17:49:06 GMT
+      content-type:
+      - application/json; charset=UTF-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      job-id:
+      - ae794754eb96426e881
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,app_key,app_id,api_key
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"candidates":[{"confidence":1,"enrollment_timestamp":"20191018213614","face_id":"d7e96f9ce1ec4ddbad8","subject_id":"Test User"}],"transaction":{"confidence":1,"enrollment_timestamp":"20191018213614","eyeDistance":74,"face_id":"d7e96f9ce1ec4ddbad8","gallery_name":"test_gallery","height":224,"pitch":10,"quality":0.0776,"roll":-4,"status":"success","subject_id":"Test User","topLeftX":147,"topLeftY":86,"width":175,"yaw":15}}]}
+
+        '
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 17:49:06 GMT
+recorded_with: VCR 5.0.0
