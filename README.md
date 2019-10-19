@@ -1,5 +1,3 @@
-https://github.com/maturbanski/kairos_rb/workflows/Ruby/badge.svg
-
 # KairosRB
 
 
@@ -21,6 +19,6 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Check https://github.com/MatUrbanski/kairos_rb/blob/master/spec/kairos_rb/client_spec.rb for more details
 
 
