@@ -69,5 +69,16 @@ module KairosRB
         headers: { 'Content-Type' => 'application/json' }
       )
     end
+
+    def gallery_details(gallery_name:)
+      body = { gallery_name: gallery_name }
+
+      @connection.call(
+        method: 'post',
+        url: '/gallery/view',
+        body: body.to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
+    end
   end
 end
