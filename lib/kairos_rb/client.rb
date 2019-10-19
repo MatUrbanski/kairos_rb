@@ -21,5 +21,16 @@ module KairosRB
         headers: { 'Content-Type' => 'application/json' }
       )
     end
+
+    def verify(image:, gallery_name:, subject_id:, selector: nil)
+      body = { gallery_name: gallery_name, image: image, subject_id: subject_id, selector: selector }
+
+      @connection.call(
+        method: 'post',
+        url: '/verify',
+        body: body.to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
+    end
   end
 end
