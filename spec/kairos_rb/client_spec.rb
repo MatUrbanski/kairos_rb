@@ -257,4 +257,19 @@ RSpec.describe KairosRB::Client do
       end
     end
   end
+
+  describe '#remove_gallery' do
+    let(:response) do
+      {
+        'message' => 'gallery test_gallery was removed',
+        'status' => 'Complete'
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'remove_gallery' do
+        expect(client.remove_gallery(gallery_name: gallery_name)).to eq response
+      end
+    end
+  end
 end

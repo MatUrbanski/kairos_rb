@@ -102,5 +102,16 @@ module KairosRB
         headers: { 'Content-Type' => 'application/json' }
       )
     end
+
+    def remove_gallery(gallery_name:)
+      body = { gallery_name: gallery_name }
+
+      @connection.call(
+        method: 'post',
+        url: '/gallery/remove',
+        body: body.to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
+    end
   end
 end
