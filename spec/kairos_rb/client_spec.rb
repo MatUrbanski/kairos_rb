@@ -242,4 +242,19 @@ RSpec.describe KairosRB::Client do
       end
     end
   end
+
+  describe '#remove_subject_from_gallery' do
+    let(:response) do
+      {
+        'message' => 'subject id Test User has been successfully removed',
+        'status' => 'Complete'
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'remove_subject_from_gallery' do
+        expect(client.remove_subject_from_gallery(gallery_name: gallery_name, subject_id: subject_id)).to eq response
+      end
+    end
+  end
 end
