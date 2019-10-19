@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kairos.com/gallery/view_subject
+    body:
+      encoding: UTF-8
+      string: '{"gallery_name":"test_gallery","subject_id":"Test User"}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      app_id:
+      - test_app_id
+      app_key:
+      - test_app_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.15.10
+      date:
+      - Sat, 19 Oct 2019 18:49:13 GMT
+      content-type:
+      - application/json; charset=UTF-8
+      content-length:
+      - '109'
+      connection:
+      - close
+      job-id:
+      - 4e8d45be3a64434f984
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,app_key,app_id,api_key
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"face_ids":[{"enrollment_timestamp":"20191018221646","face_id":"189b6f66e1fb4925973"}],"status":"Complete"}
+
+        '
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 18:49:13 GMT
+recorded_with: VCR 5.0.0

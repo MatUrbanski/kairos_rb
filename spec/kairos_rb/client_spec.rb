@@ -222,4 +222,24 @@ RSpec.describe KairosRB::Client do
       end
     end
   end
+
+  describe '#gallery_subject' do
+    let(:response) do
+      {
+        'face_ids' => [
+          {
+            'enrollment_timestamp' => '20191018221646',
+            'face_id' => '189b6f66e1fb4925973'
+          }
+        ],
+        'status' => 'Complete'
+      }
+    end
+
+    it 'returns parsed json response' do
+      VCR.use_cassette 'gallery_subject' do
+        expect(client.gallery_subject(gallery_name: gallery_name, subject_id: subject_id)).to eq response
+      end
+    end
+  end
 end
